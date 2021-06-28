@@ -1,0 +1,77 @@
+GET http://localhost:3003/auction
+
+###
+
+GET http://localhost:3003/auction/one/?title=Monalisa
+
+###
+
+POST http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "id": 1,
+    "title":"Serjão Berranteiro",
+    "initial": 3000,
+    "expiration": "2021-07-31"
+}
+
+###
+
+POST  http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "id": 2,
+    "title": "Everyday",
+    "initial": 4000,
+    "expiration": "2021-08-25"
+}
+
+###
+
+POST http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "id": 3,
+    "title": "Monalisa",
+    "initial": 5000,
+    "expiration": "2021-08-20"
+}
+
+###
+
+POST http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "id": 4,
+    "title":"Enfim, a Hipocresia",
+    "initial": 6000,
+    "expiration":"2021-08-15"
+}
+
+###
+
+POST http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "id": 5,
+    "title":"Don Quixote",
+    "initial": 7000,
+    "expiration":"2021-08-10"
+}
+
+###
+DELETE http://localhost:3003/auction/5
+
+###
+
+PUT http://localhost:3003/auction/put/5
+Content-Type: application/json
+
+{
+    "bid": 500
+}
