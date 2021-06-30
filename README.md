@@ -25,20 +25,19 @@ Projeto de criação de leilão da Flow.in
 
 -Tabela de criação de leilões
 
-CREATE TABLE leilão (
-id INT, NÃO NULO, CHAVE PRIMÁRIA,
-título VARCHAR (255) NÃO NULO,
-INT NÃO NULO inicial,
-lances INT NOT NULL,
-expiração DATA NÃO NULA
+CREATE TABLE auction (
+id INT NOT NULL PRIMARY KEY,
+title VARCHAR (255) NOT NULL,
+initial INT NOT NULL,
+expiration DATE NOT NULL
 );
 
-- Tabela de criação de lanças
+- Tabela de criação de lances
 
-CRIAR Lance TABELA (
-id INT, NÃO NULO, CHAVE PRIMÁRIA,
-lance INT NOT NULL,
-datas DATA NÃO NULO,
-leilão_id INT NOT NULL,
-CHAVE ESTRANGEIRA (leilão_id) REFERÊNCIAS leilão (id)
+CREATE TABLE bid (
+id INT NOT NULL PRIMARY KEY,
+bid INT NOT NULL,
+dates DATE NOT NULL,
+auction_id INT NOT NULL,
+FOREIGN KEY (auction_id) REFERENCES auction(id)
 );
