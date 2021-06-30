@@ -65,13 +65,62 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3003/auction/5
 
-###
-
-PUT http://localhost:3003/auction/put/5
+POST http://localhost:3003/auction/post
 Content-Type: application/json
 
 {
-    "bid": 500
+    "id": 6,
+    "title":"Ameno",
+    "initial": 500000,
+    "expiration":"2021-12-25" 
 }
+
+###
+
+POST http://localhost:3003/auction/post
+Content-Type: application/json
+
+{
+    "title":"Dorime",
+    "initial": 7000000,
+    "expiration":"2021-12-21" 
+}
+
+
+###
+DELETE http://localhost:3003/auction/6
+
+######### 
+
+GET http://localhost:3003/bid/?id=11
+
+###
+
+POST http://localhost:3003/bid/post/
+Content-Type: application/json
+
+{
+    "id": 12,
+    "bid": 200000 ,
+    "dates": "2021-08-02",
+    "auction_id": 2
+}
+
+###
+
+POST http://localhost:3003/bid/post/
+Content-Type: application/json
+
+{
+    "id": 13,
+    "bid": 300000 ,
+    "dates": "2021-08-01",
+    "auction_id": 3
+}
+
+###
+
+DELETE http://localhost:3003/bid/12
+
+###

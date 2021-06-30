@@ -16,13 +16,13 @@ const connection_1 = __importDefault(require("../connection"));
 function postAuction(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { id, title, initial, bids, expiration } = req.body;
+            const { id, title, initial, expiration, } = req.body;
             yield connection_1.default("auction")
-                .insert({ id, title, initial, bids, expiration });
+                .insert({ id, title, initial, expiration, });
             res.status(201).end();
         }
         catch (error) {
-            res.status(501).send("Erro");
+            res.status(501).send({ message: error.message });
         }
     });
 }

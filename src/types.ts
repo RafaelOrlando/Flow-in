@@ -1,21 +1,19 @@
 export type auction = {
-    id: number,
+    id: string,
     title: string,
     initial: number,
     expiration: string,
-    bid?: number,
-    date?: number,
+   
    
 }
 
-//export type bid = {
-//   bid : number,
-//   date: number
-//}
-//
-
-export enum FEATURE {
-    MEME = "meme",
-    Art = "art"
+export type bid = {
+   id: string,
+   bid : number,
+   dates: number,
+   auction_id: string
 }
+
+
+
 

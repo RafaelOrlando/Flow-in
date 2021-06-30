@@ -13,18 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const connection_1 = __importDefault(require("../connection"));
-function putBid(req, res) {
+function postBid(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { id } = req.params;
-            const { bid, date } = req.body;
-            if (!bid && !date) {
-                res.statusCode = 422;
-                res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'";
-                throw new Error();
-            }
-            yield connection_1.default("auction")
-                .update({ bid, date }).where({ id });
+            const { id, bid, dates, auction_id } = req.body;
+            yield connection_1.default("bid")
+                .insert({ id, bid, dates, auction_id });
             res.status(201).end();
         }
         catch (error) {
@@ -32,5 +26,5 @@ function putBid(req, res) {
         }
     });
 }
-exports.default = putBid;
-//# sourceMappingURL=putBid.js.map
+exports.default = postBid;
+//# sourceMappingURL=postBid.js.map

@@ -13,24 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const connection_1 = __importDefault(require("../connection"));
-function putBid(req, res) {
+function deleteBid(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const { id } = req.params;
-            const { bid, date } = req.body;
-            if (!bid && !date) {
-                res.statusCode = 422;
-                res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'";
-                throw new Error();
-            }
-            yield connection_1.default("auction")
-                .update({ bid, date }).where({ id });
-            res.status(201).end();
+            yield connection_1.default("bid")
+                .delete().where({ id });
+            res.status(202).end();
         }
         catch (error) {
-            res.status(501).send({ message: error.message });
+            res.status(502).send("Deu ruim");
         }
     });
 }
-exports.default = putBid;
-//# sourceMappingURL=putBid.js.map
+exports.default = deleteBid;
+//# sourceMappingURL=deleteBid.js.map
